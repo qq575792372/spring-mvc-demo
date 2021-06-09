@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.gsw.mapper.BookMapper">
+    <resultMap id="Book" type="com.gsw.entity.Book">
+        <id property="id" column="id"/>
+        <result property="bookName" column="book_name"/>
+        <result property="authName" column="auth_name"/>
+        <result property="searchHot" column="search_hot"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!--查询列表-->
+    <select id="selectBooks" resultMap="Book" parameterType="java.util.Map">
+        select * from tb_book
+        <where>
+            book_name like '%${bookName}%'
+            <if test="authName != null">
+                and auth_name like '%${authName}%'
+            </if>
+        </where>
+    </select>
+</mapper>

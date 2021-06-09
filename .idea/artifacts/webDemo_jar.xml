@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="webDemo:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/webDemo_jar</output-path>
+    <root id="archive" name="webDemo.jar">
+      <element id="module-output" name="webDemo" />
+    </root>
+  </artifact>
+</component>
